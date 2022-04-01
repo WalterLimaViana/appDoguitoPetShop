@@ -1,16 +1,16 @@
 # doguito_petshop
 
-A new Flutter project.
+O Doguito Petshop é um aplicativo mobile desenvolvido em Flutter e Dart que foram baseados na página web Doguito PetShop.
 
-## Getting Started
+## Sobre
 
-This project is a starting point for a Flutter application.
+Esse aplicativo foi criado com o intuito de aprimorar os meus conhecimentos com a tecnologia Mobile.
 
-A few resources to get you started if this is your first Flutter project:
+Algumas das funcionalidades que aprendi com esse projeto foram:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Menu na parte de baixo da tela, para mudar de páginas utilizando o widget BottomNavigationBar;
+- Menu lateral, com navegações de telas utilizando route e opção de logout para voltar a tela de login;
+- Login através de senha, com utilização de required;
+- Animação da tela de inicialização utilizando o Splash Screen.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para visualizar outros projetos, visite o meu [portólio](https://portifolio-walter-lima-viana.vercel.app/) ou o meu [linkedIn](https://www.linkedin.com/in/walter-lima-viana/).
