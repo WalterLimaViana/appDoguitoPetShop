@@ -14,6 +14,11 @@ class _ProdutosPageState extends State<ProdutosPage> {
       appBar: AppBar(
         title: Text('Produtos'),
       ),
+      body: SafeArea(
+        child: Column(
+          children: [],
+        ),
+      ),
     );
   }
 }
