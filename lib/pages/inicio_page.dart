@@ -29,17 +29,23 @@ class _InicioPageState extends State<InicioPage> {
             ListTile(
               leading: Icon(Icons.list),
               title: Text('Categorias'),
-              onTap: () {},
+              onTap: () {
+                // Navigator.of(context).pushReplacementNamed('/categorias');
+              },
             ),
             ListTile(
               leading: Icon(Icons.more_horiz),
               title: Text('Mais'),
-              onTap: () {},
+              onTap: () {
+                // Navigator.of(context).pushReplacementNamed('/mais');
+              },
             ),
             ListTile(
               leading: Icon(Icons.logout),
               title: Text('Finalizar Sessão'),
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed('/login');
+              },
             ),
           ],
         )),

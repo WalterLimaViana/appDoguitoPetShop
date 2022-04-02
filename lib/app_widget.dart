@@ -3,6 +3,7 @@ import 'package:doguito_petshop/app_controller.dart';
 import 'package:doguito_petshop/pages/categorias_page.dart';
 import 'package:doguito_petshop/pages/home_page.dart';
 import 'package:doguito_petshop/pages/inicio_page.dart';
+import 'package:doguito_petshop/pages/mais_page.dart';
 import 'package:doguito_petshop/pages/produtos_page.dart';
 import 'package:doguito_petshop/pages/servicos_page.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,7 @@ class AppWidget extends StatelessWidget {
             '/categorias': (context) => CategoriasPage(),
             '/produtos': (context) => ProdutosPage(),
             '/servicos': (context) => ServicosPage(),
+            '/mais': (context) => MaisPage(),
           },
         );
       },
