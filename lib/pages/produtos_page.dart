@@ -16,7 +16,9 @@ class _ProdutosPageState extends State<ProdutosPage> {
       ),
       body: SafeArea(
         child: Column(
-          children: [],
+          children: [
+            
+          ],
         ),
       ),
     );

@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:doguito_petshop/sign_up_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,48 +15,200 @@ class _LoginPageState extends State<LoginPage> {
   String password = '';
 
   Widget _body() {
-    return SingleChildScrollView(
-      child: SizedBox(
-        width: MediaQuery.of(context).size.width,
+    return Scaffold(
+      body: Container(
         height: MediaQuery.of(context).size.height,
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
+        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
+        decoration: BoxDecoration(
+          color: Color.fromARGB(255, 61, 187, 245),
+          // gradient: LinearGradient(
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          //   colors: [
+          //     Colors.black().getGradientMainColor(),
+          //     CustomColors().getGradientSecondaryColor(),
+          //   ],
+          // ),
+        ),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Container(
-                height: 200,
-                width: 200,
-                child: Image.asset('assets/img/logo.png'),
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: 7,
+                ),
+                child: Image.asset(
+                  "assets/img/logo.png",
+                  height: 125,
+                ),
               ),
-              Container(
-                height: 10,
+              Text(
+                "Doguito Petshop",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-              TextField(
-                onChanged: (text) {
-                  email = text;
-                },
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Email'),
+              Form(
+                // key: _formKey,
+                child: Column(
+                  children: [
+                    TextField(
+                      onChanged: (text) {
+                        email = text;
+                      },
+                      keyboardType: TextInputType.emailAddress,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        labelStyle: TextStyle(
+                          color: Colors.white,
+                        ),
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: Colors.white,
+                          ),
+                        ),
+                        labelText: 'Email',
+                      ),
+                    ),
+                    // TextFormField(
+                    //   // validator: (value) {
+                    //   //   if (value.length < 5) {
+                    //   //     return "Esse e-mail parece curto demais";
+                    //   //   } else if (!value.contains("@")) {
+                    //   //     return "Esse e-mail está meio estranho, não?";
+                    //   //   }
+                    //   //   return null;
+                    //   // },
+                    //   // controller: _mailInputController,
+                    //   autofocus: true,
+                    //   style: TextStyle(color: Colors.white),
+                    //   decoration: InputDecoration(
+                    //     labelText: "E-mail",
+                    //     labelStyle: TextStyle(
+                    //       color: Colors.white,
+                    //     ),
+                    //     prefixIcon: Icon(
+                    //       Icons.mail_outline,
+                    //       color: Colors.white,
+                    //     ),
+                    //     focusedBorder: UnderlineInputBorder(
+                    //       borderSide: BorderSide(
+                    //         color: Colors.white,
+                    //       ),
+                    //     ),
+                    //     enabledBorder: UnderlineInputBorder(
+                    //       borderSide: BorderSide(
+                    //         color: Colors.white,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
+                    Padding(
+                      padding: EdgeInsets.only(bottom: 20),
+                    ),
+                    TextField(
+                      onChanged: (text) {
+                        password = text;
+                      },
+                      obscureText: true,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                          labelStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.white,
+                            ),
+                          ),
+                          labelText: 'Senha'),
+                    ),
+                    // TextFormField(
+                    //   // validator: (value) {
+                    //   //   if (value.length < 6) {
+                    //   //     return "A senha deve ter pelo menos 6 caracteres";
+                    //   //   }
+                    //   //   return null;
+                    //   // },
+                    //   // obscureText: _obscurePassword,
+                    //   // controller: _passwordInputController,
+                    //   style: TextStyle(color: Colors.white),
+                    //   decoration: InputDecoration(
+                    //     labelText: "Senha",
+                    //     labelStyle: TextStyle(
+                    //       color: Colors.white,
+                    //     ),
+                    //     prefixIcon: Icon(
+                    //       Icons.vpn_key_sharp,
+                    //       color: Colors.white,
+                    //     ),
+                    //     focusedBorder: UnderlineInputBorder(
+                    //       borderSide: BorderSide(
+                    //         color: Colors.white,
+                    //       ),
+                    //     ),
+                    //     enabledBorder: UnderlineInputBorder(
+                    //       borderSide: BorderSide(
+                    //         color: Colors.white,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
+                  ],
+                ),
               ),
-              Container(
-                height: 30,
+              Padding(
+                padding: EdgeInsets.only(bottom: 10),
               ),
-              TextField(
-                onChanged: (text) {
-                  password = text;
-                },
-                obscureText: true,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(), labelText: 'Senha'),
+              GestureDetector(
+                onTap: () {},
+                child: Text(
+                  "Esqueceu a senha?",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12,
+                  ),
+                  textAlign: TextAlign.right,
+                ),
               ),
-              Container(
-                height: 30,
+              Padding(
+                padding: EdgeInsets.only(bottom: 30),
               ),
-              RaisedButton(
-                textColor: Colors.white,
-                color: Colors.lightBlue,
+              // Row(
+              //   children: [
+              //     Checkbox(
+              //       value: this._obscurePassword,
+              //       onChanged: (bool newValue) {
+              //         setState(() {
+              //           this._obscurePassword = newValue;
+              //         });
+              //       },
+              //       activeColor: Colors.blue,
+              //     ),
+              //     Text(
+              //       "Mostrar senha",
+              //       style: TextStyle(
+              //         color: Colors.white,
+              //       ),
+              //     )
+              //   ],
+              // ),
+              ElevatedButton(
                 onPressed: () {
                   if (email == 'walter.lima.viana@gmail.com' &&
                       password == '123456') {
@@ -71,8 +224,47 @@ class _LoginPageState extends State<LoginPage> {
                         SnackBar(content: Text('Usuário ou senha incorreta')));
                   }
                 },
-                child: Text('Entrar'),
-              )
+                child: Text(
+                  'Entrar',
+                  style: TextStyle(color: Colors.white),
+                ),
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<OutlinedBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(50),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: Divider(
+                  color: Colors.white,
+                ),
+              ),
+              Text(
+                "Ainda não tem uma conta?",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 11),
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 10),
+                // ignore: deprecated_member_use
+                child: RaisedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignUpPage(),
+                      ),
+                    );
+                  },
+                  child: Text("Cadastre-se"),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(50),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -83,16 +275,20 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Center(child: Text('Doguito PetShop Delivery')),
-        ),
+        // appBar: AppBar(
+        //   title: Center(
+        //       child: Text(
+        //     'Doguito PetShop Delivery',
+        //     style: TextStyle(color: Colors.white),
+        //   )),
+        // ),
         body: Stack(
-          children: [
-            Container(
-              color: Color.fromARGB(97, 208, 231, 252),
-            ),
-            _body(),
-          ],
-        ));
+      children: [
+        Container(
+          color: Color.fromARGB(97, 208, 231, 252),
+        ),
+        _body(),
+      ],
+    ));
   }
 }
