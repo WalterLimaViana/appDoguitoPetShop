@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "88865958797",
+    "project_id": "doguitopetshop-7c920",
+    "storage_bucket": "doguitopetshop-7c920.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88865958797:android:6f5cb7bf0ec7cadeb72bc4",
+        "android_client_info": {
+          "package_name": "com.example.doguito_petshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88865958797-mrkskar13fr10hmutfc579gtu809kdrj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhGyKP4WREtzCpf1aa2HQL8RmBykFYbJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88865958797-mrkskar13fr10hmutfc579gtu809kdrj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
