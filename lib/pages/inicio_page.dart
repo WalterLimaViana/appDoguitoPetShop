@@ -1,4 +1,5 @@
 import 'package:doguito_petshop/app_controller.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class InicioPage extends StatefulWidget {
@@ -14,17 +15,14 @@ class _InicioPageState extends State<InicioPage> {
 
   get onTabTapped => null;
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser!;
+
     return Scaffold(
         drawer: Drawer(
             child: Column(
           children: [
             UserAccountsDrawerHeader(
-                currentAccountPicture: ClipRRect(
-                    borderRadius: BorderRadius.circular(40),
-                    child: Image.network(
-                        'https://media-exp1.licdn.com/dms/image/C4E03AQGFAhdSYPe7kQ/profile-displayphoto-shrink_200_200/0/1646495459765?e=1653523200&v=beta&t=HMrbLeGN3f8VkRoLJ_TdOQ1QMXfhKe_4LrVbbE2Lkes')),
-                accountName: Text('Walter Lima'),
-                accountEmail: Text('walter.lima.viana@gmail.com')),
+                accountName: Text('Email'), accountEmail: Text(user.email!)),
             Container(height: 40),
             ListTile(
               leading: Icon(Icons.list),
@@ -43,9 +41,7 @@ class _InicioPageState extends State<InicioPage> {
             ListTile(
               leading: Icon(Icons.logout),
               title: Text('Finalizar Sessão'),
-              onTap: () {
-                Navigator.of(context).pushReplacementNamed('/login');
-              },
+              onTap: () => FirebaseAuth.instance.signOut(),
             ),
           ],
         )),
