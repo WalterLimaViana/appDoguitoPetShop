@@ -27,20 +27,20 @@ class AppWidget extends StatelessWidget {
           ),
           //Instanciando as rotas:
           initialRoute: '/',
-          routes: {
-            '/': (context) => AnimatedSplashScreen(
-                splash: Icons.pets,
-                duration: 3000,
-                splashTransition: SplashTransition.rotationTransition,
-                backgroundColor: Colors.lightBlue,
-                nextScreen: LoginPage()),
-            '/login': (context) => LoginPage(),
-            '/home': (context) => HomePage(),
-            '/categorias': (context) => CategoriasPage(),
-            '/produtos': (context) => ProdutosPage(),
-            '/servicos': (context) => ServicosPage(),
-            '/mais': (context) => MaisPage(),
-          },
+          // routes: {
+          //   '/': (context) => AnimatedSplashScreen(
+          //       splash: Icons.pets,
+          //       duration: 3000,
+          //       splashTransition: SplashTransition.rotationTransition,
+          //       backgroundColor: Colors.lightBlue,
+          //       nextScreen: LoginPage()),
+          //   '/login': (context) => LoginPage(),
+          //   '/home': (context) => HomePage(),
+          //   '/categorias': (context) => CategoriasPage(),
+          //   '/produtos': (context) => ProdutosPage(),
+          //   '/servicos': (context) => ServicosPage(),
+          //   '/mais': (context) => MaisPage(),
+          // },
         );
       },
     );

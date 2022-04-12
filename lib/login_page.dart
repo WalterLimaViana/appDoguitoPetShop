@@ -1,11 +1,22 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:html';
+
 import 'package:doguito_petshop/main.dart';
 import 'package:doguito_petshop/sign_up_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'dart:html';
 
 class LoginPage extends StatefulWidget {
+  final onClickedSignUp;
+
+  const LoginPage({
+    Key? key,
+    required this.onClickedSignUp,
+  }) : super(key: key);
+
   // const LoginPage({Key? key}) : super(key: key);
 
   // @override
@@ -149,28 +160,20 @@ class _LoginPageState extends State<LoginPage> {
                       color: Colors.white,
                     ),
                   ),
-                  Text(
-                    "Ainda não tem uma conta?",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 11),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    // ignore: deprecated_member_use
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SignUpPage(),
-                          ),
-                        );
-                      },
-                      child: Text("Cadastre-se"),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                    ),
+                  RichText(
+                    text: TextSpan(
+                        style: TextStyle(color: Colors.white),
+                        text: 'Ainda não tem uma conta?',
+                        children: [
+                          TextSpan(
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = widget.onClickedSignUp,
+                              text: 'Cadastre-se',
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
+                                color: Colors.white,
+                              )),
+                        ]),
                   ),
                 ],
               )),

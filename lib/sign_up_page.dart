@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'dart:html';
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  final Function() onClickedSignIn;
+  const SignUpPage({Key? key, required this.onClickedSignIn}) : super(key: key);
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();

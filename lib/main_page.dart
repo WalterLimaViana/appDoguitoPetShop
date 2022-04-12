@@ -1,3 +1,4 @@
+import 'package:doguito_petshop/auth.page.dart';
 import 'package:doguito_petshop/login_page.dart';
 import 'package:doguito_petshop/pages/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,7 +17,7 @@ class MainPage extends StatelessWidget {
               } else if (snapshot.hasData) {
                 return HomePage();
               } else {
-                return LoginPage();
+                return AuthPage();
               }
             }),
       );
