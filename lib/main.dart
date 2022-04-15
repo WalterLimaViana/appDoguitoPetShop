@@ -1,6 +1,7 @@
 import 'package:doguito_petshop/app_widget.dart';
 import 'package:doguito_petshop/login_page.dart';
 import 'package:doguito_petshop/pages/home_page.dart';
+import 'package:doguito_petshop/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,7 @@ class MyApp extends StatelessWidget {
   static final String title = 'Firebase Auth';
   @override
   Widget build(BuildContext context) => MaterialApp(
+        scaffoldMessengerKey: Utils.messengerKey,
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         title: title,

@@ -1,4 +1,6 @@
 import 'package:doguito_petshop/main.dart';
+import 'package:doguito_petshop/utils.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +15,7 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
@@ -51,7 +54,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 padding: EdgeInsets.only(bottom: 10),
               ),
               Form(
-                // key: _formKey,
+                key: formKey,
                 child: Column(
                   children: [
                     // TextFormField(
@@ -102,6 +105,11 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                       ),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (email) =>
+                          email != null && !EmailValidator.validate(email)
+                              ? 'Entre com um email válido'
+                              : null,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -131,6 +139,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                         ),
                       ),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (value) => value != null && value.length < 6
+                          ? 'Minimo de 6 caracteres'
+                          : null,
                     ),
                   ],
                 ),
@@ -173,6 +185,9 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       );
   Future signUp() async {
+    final isValid = formKey.currentState!.validate();
+    if (!isValid) return;
+
     showDialog(
         context: context,
         barrierDismissible: false,
@@ -186,6 +201,8 @@ class _SignUpPageState extends State<SignUpPage> {
       );
     } on FirebaseAuthException catch (e) {
       print(e);
+
+      Utils.showSnackBar(e.message);
     }
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }

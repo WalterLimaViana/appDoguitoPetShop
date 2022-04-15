@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:doguito_petshop/main.dart';
 import 'package:doguito_petshop/sign_up_page.dart';
+import 'package:doguito_petshop/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -103,8 +104,8 @@ class _LoginPageState extends State<LoginPage> {
                   TextField(
                     controller: passwordController,
                     textInputAction: TextInputAction.next,
-                    obscureText: true,
                     style: TextStyle(color: Colors.white),
+                    obscureText: true,
                     decoration: InputDecoration(
                         labelStyle: TextStyle(
                           color: Colors.white,
@@ -194,6 +195,7 @@ class _LoginPageState extends State<LoginPage> {
       );
     } on FirebaseAuthException catch (e) {
       print(e);
+      Utils.showSnackBar(e.message);
     }
 
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
