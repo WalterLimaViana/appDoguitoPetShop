@@ -1,13 +1,12 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:html';
+import 'dart:io';
 
 import 'package:doguito_petshop/main.dart';
 import 'package:doguito_petshop/sign_up_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'dart:html';
 
 class LoginPage extends StatefulWidget {
   final onClickedSignUp;
@@ -163,7 +162,7 @@ class _LoginPageState extends State<LoginPage> {
                   RichText(
                     text: TextSpan(
                         style: TextStyle(color: Colors.white),
-                        text: 'Ainda não tem uma conta?',
+                        text: 'Ainda não tem uma conta? ',
                         children: [
                           TextSpan(
                               recognizer: TapGestureRecognizer()

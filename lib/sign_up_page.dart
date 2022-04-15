@@ -1,5 +1,8 @@
+import 'package:doguito_petshop/main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'dart:html';
+import 'dart:io';
 
 class SignUpPage extends StatefulWidget {
   final Function() onClickedSignIn;
@@ -10,31 +13,31 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        padding: EdgeInsets.symmetric(
-          vertical: 50,
-          horizontal: 50,
-        ),
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 61, 187, 245),
-          // gradient: LinearGradient(
-          //   begin: Alignment.topCenter,
-          //   end: Alignment.bottomCenter,
-          //   colors: [
-          //     Colors.black().getGradientMainColor(),
-          //     CustomColors().getGradientSecondaryColor(),
-          //   ],
-          // ),
-        ),
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        body: Container(
+          padding: EdgeInsets.symmetric(
+            vertical: 50,
+            horizontal: 50,
+          ),
+          decoration: BoxDecoration(
+            color: Color.fromARGB(255, 61, 187, 245),
+          ),
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: SingleChildScrollView(
+            child: Column(children: [
               Text(
                 "Cadastro",
                 textAlign: TextAlign.center,
@@ -51,47 +54,32 @@ class _SignUpPageState extends State<SignUpPage> {
                 // key: _formKey,
                 child: Column(
                   children: [
+                    // TextFormField(
+                    //   autofocus: true,
+                    //   style: TextStyle(color: Colors.white),
+                    //   decoration: InputDecoration(
+                    //     labelText: "Nome Completo",
+                    //     labelStyle: TextStyle(
+                    //       color: Colors.white,
+                    //     ),
+                    //     prefixIcon: Icon(
+                    //       Icons.person,
+                    //       color: Colors.white,
+                    //     ),
+                    //     focusedBorder: UnderlineInputBorder(
+                    //       borderSide: BorderSide(
+                    //         color: Colors.white,
+                    //       ),
+                    //     ),
+                    //     enabledBorder: UnderlineInputBorder(
+                    //       borderSide: BorderSide(
+                    //         color: Colors.white,
+                    //       ),
+                    //     ),
+                    //   ),
+                    // ),
                     TextFormField(
-                      // validator: (value) {
-                      //   if (value.length < 10) {
-                      //     return "Digite um nome maior";
-                      //   }
-                      //   return null;
-                      // },
-                      // controller: _nameInputController,
-                      autofocus: true,
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        labelText: "Nome Completo",
-                        labelStyle: TextStyle(
-                          color: Colors.white,
-                        ),
-                        prefixIcon: Icon(
-                          Icons.person,
-                          color: Colors.white,
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    TextFormField(
-                      // validator: (value) {
-                      //   if (value.length < 5) {
-                      //     return "Esse e-mail parece curto demais";
-                      //   } else if (!value.contains("@")) {
-                      //     return "Esse e-mail está meio estranho, não?";
-                      //   }
-                      //   return null;
-                      // },
-                      // controller: _mailInputController,
+                      controller: emailController,
                       autofocus: true,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
@@ -121,14 +109,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       ),
                     ),
                     TextFormField(
-                      // validator: (value) {
-                      //   if (value.length < 6) {
-                      //     return "A senha deve ter pelo menos 6 caracteres";
-                      //   }
-                      //   return null;
-                      // },
-                      // controller: _passwordInputController,
-                      // obscureText: (this.showPassword == true) ? false : true,
+                      controller: passwordController,
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         labelText: "Senha",
@@ -151,60 +132,6 @@ class _SignUpPageState extends State<SignUpPage> {
                         ),
                       ),
                     ),
-                    // (this.showPassword == false)
-                    //     ?
-                    TextFormField(
-                      // validator: (value) {
-                      //   if (value != _passwordInputController.text) {
-                      //     return "As senhas devem ser iguais";
-                      //   }
-                      //   return null;
-                      // },
-                      // controller: _confirmInputController,
-                      obscureText: true,
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        labelText: "Confirme a Senha",
-                        labelStyle: TextStyle(
-                          color: Colors.white,
-                        ),
-                        prefixIcon: Icon(
-                          Icons.vpn_key_sharp,
-                          color: Colors.white,
-                        ),
-                        focusedBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    )
-                    // :
-                    // Container(),
-                    // Row(
-                    //   children: [
-                    //     Checkbox(
-                    //       value: this.showPassword,
-                    //       onChanged: (bool newValue) {
-                    //         setState(() {
-                    //           this.showPassword = newValue;
-                    //         });
-                    //       },
-                    //       activeColor: Colors.blue,
-                    //     ),
-                    //     Text(
-                    //       "Mostrar senha",
-                    //       style: TextStyle(
-                    //         color: Colors.white,
-                    //       ),
-                    //     )
-                    //   ],
-                    // ),
                   ],
                 ),
               ),
@@ -215,20 +142,51 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               // ignore: deprecated_member_use
               RaisedButton(
-                onPressed: () {
-                  // _doSignUp();
-                  Navigator.of(context).pushReplacementNamed('/login');
-                },
+                onPressed: signUp,
                 child: Text("Cadastrar"),
                 // color: CustomColors().getActiveSecondaryButton(),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(50),
                 ),
               ),
-            ],
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: 15,
+                ),
+              ),
+              RichText(
+                text: TextSpan(
+                    style: TextStyle(color: Colors.white, fontSize: 14),
+                    text: 'Já possui uma conta? ',
+                    children: [
+                      TextSpan(
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = widget.onClickedSignIn,
+                          text: 'Iniciar Sessão',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                          ))
+                    ]),
+              )
+            ]),
           ),
         ),
-      ),
-    );
+      );
+  Future signUp() async {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (context) => Center(
+              child: CircularProgressIndicator(),
+            ));
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+    } on FirebaseAuthException catch (e) {
+      print(e);
+    }
+    navigatorKey.currentState!.popUntil((route) => route.isFirst);
   }
 }
