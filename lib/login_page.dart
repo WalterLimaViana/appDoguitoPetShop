@@ -2,6 +2,7 @@
 
 import 'dart:io';
 
+import 'package:doguito_petshop/forgot_password_page.dart';
 import 'package:doguito_petshop/main.dart';
 import 'package:doguito_petshop/sign_up_page.dart';
 import 'package:doguito_petshop/utils.dart';
@@ -126,7 +127,9 @@ class _LoginPageState extends State<LoginPage> {
                     padding: EdgeInsets.only(bottom: 10),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ForgotPasswordPage(),
+                    )),
                     child: Text(
                       "Esqueceu a senha?",
                       style: TextStyle(
@@ -195,7 +198,7 @@ class _LoginPageState extends State<LoginPage> {
       );
     } on FirebaseAuthException catch (e) {
       print(e);
-      Utils.showSnackBar(e.message);
+      // Utils.showSnackBar(e.message);
     }
 
     navigatorKey.currentState!.popUntil((route) => route.isFirst);
