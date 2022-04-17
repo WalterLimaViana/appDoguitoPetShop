@@ -5,42 +5,27 @@ import 'package:flutter/material.dart';
 import 'app_widget.dart';
 import 'login_page.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({Key? key}) : super(key: key);
+class SplashPage extends StatelessWidget {
+  int duration = 0;
+  Widget goToPage;
 
-  @override
-  State<Splash> createState() => _SplashState();
-}
-
-class _SplashState extends State<Splash> {
-  @override
-  void initState() {
-    super.initState();
-    _navigatetoHome();
-  }
-
-  _navigatetoHome() async {
-    await Future.delayed(Duration(milliseconds: 1500), () {});
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => AppWidget()));
-  }
+  SplashPage({required this.goToPage, required this.duration});
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: this.duration), () {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => this.goToPage,
+          ));
+    });
+
     return Scaffold(
-        body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-            height: 100,
-            width: 100,
-            color: Colors.blueAccent,
-          ),
-          Container(
-              child: Text('Splash Screen',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))),
-        ],
+        body: Container(
+      color: Color.fromARGB(255, 61, 187, 245),
+      child: Center(
+        child: Icon(Icons.pets, color: Colors.white, size: 100),
       ),
     ));
   }
