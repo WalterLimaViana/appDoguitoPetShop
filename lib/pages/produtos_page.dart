@@ -1,20 +1,30 @@
+import 'package:doguito_petshop/helpers/utils.dart';
+import 'package:doguito_petshop/models/category.dart';
 import 'package:flutter/material.dart';
 
 class ProdutosPage extends StatefulWidget {
-  const ProdutosPage({Key? key}) : super(key: key);
-
   @override
   State<ProdutosPage> createState() => _ProdutosPageState();
 }
 
 class _ProdutosPageState extends State<ProdutosPage> {
+  List<Category> categories = Utils.getMockedCategories();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Produtos'),
       ),
-      body: Center(),
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text('Selecione uma categoria',
+                style: TextStyle(color: Colors.black))
+          ],
+        ),
+      ),
     );
   }
 }
