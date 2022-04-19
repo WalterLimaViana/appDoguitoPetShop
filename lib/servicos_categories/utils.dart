@@ -1,39 +1,40 @@
-import 'package:doguito_petshop/helpers/iconHelper.dart';
 import 'package:doguito_petshop/models/category.dart';
 import 'package:flutter/material.dart';
+
+import '../helpers/iconHelper.dart';
 
 class Utils {
   static List<Category> getMockedCategories() {
     return [
       Category(
           color: Color.fromARGB(255, 250, 192, 2),
-          name: "Cachorros",
-          imgName: "cachorro-filhotes",
-          icon: IconFontHelper.DOG,
+          name: "Banho e Tosa",
+          imgName: "banho-e-tosa",
+          icon: IconFontHelper.BATHDOG,
           subCategories: []),
       Category(
           color: Color.fromARGB(255, 253, 2, 2),
-          name: "Gatos",
-          imgName: "gatos-filhotes",
-          icon: IconFontHelper.CAT,
+          name: "Fármacia",
+          imgName: "farmacia",
+          icon: IconFontHelper.CRUZ,
           subCategories: []),
       Category(
           color: Color.fromARGB(255, 4, 248, 228),
-          name: "Passáros",
-          imgName: "passaros",
-          icon: IconFontHelper.BIRD,
+          name: "Veterinário",
+          imgName: "veterinario",
+          icon: IconFontHelper.VETERINARY,
           subCategories: []),
       Category(
           color: Color.fromARGB(255, 61, 252, 4),
-          name: "Peixes",
-          imgName: "peixes",
-          icon: IconFontHelper.FISH,
+          name: "Pet Sitter",
+          imgName: "pet-sitter",
+          icon: IconFontHelper.RUNNINGDOG,
           subCategories: []),
       Category(
           color: Color.fromARGB(255, 247, 2, 165),
-          name: "Outros Pets",
-          imgName: "outros-pets",
-          icon: IconFontHelper.RABBIT,
+          name: "Hospedagem",
+          imgName: "hospedagem",
+          icon: IconFontHelper.DOGHOUSE,
           subCategories: []),
     ];
   }

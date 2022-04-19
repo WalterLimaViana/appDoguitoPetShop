@@ -14,4 +14,8 @@ class IconFontHelper {
   static const String DOG = 'm';
   static const String CAT = 'n';
   static const String FISH = 'o';
+  static const String DOGHOUSE = 'p';
+  static const String RUNNINGDOG = 'q';
+  static const String BATHDOG = 'r';
+  static const String VETERINARY = 's';
 }

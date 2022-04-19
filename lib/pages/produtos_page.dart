@@ -1,6 +1,7 @@
 import 'package:doguito_petshop/helpers/iconHelper.dart';
 import 'package:doguito_petshop/helpers/utils.dart';
 import 'package:doguito_petshop/models/category.dart';
+import 'package:doguito_petshop/pages/home_page.dart';
 import 'package:doguito_petshop/pages/selected_category_page.dart';
 import 'package:doguito_petshop/splash.dart';
 import 'package:doguito_petshop/widgets/category_card.dart';
@@ -19,6 +20,17 @@ class _ProdutosPageState extends State<ProdutosPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+            );
+          },
+        ),
         title: Center(
             child:
                 Text('Produtos', style: TextStyle(color: Colors.blueAccent))),

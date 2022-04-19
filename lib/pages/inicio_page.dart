@@ -46,7 +46,12 @@ class _InicioPageState extends State<InicioPage> {
           ],
         )),
         appBar: AppBar(
-          title: Text('Bem Vindo'),
+          title: Center(
+              child: Text('Bem Vindo',
+                  style: TextStyle(color: Colors.blueAccent))),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          iconTheme: IconThemeData(color: Colors.blueAccent),
           actions: [CustomSwitch()],
         ),
         body: SafeArea(
