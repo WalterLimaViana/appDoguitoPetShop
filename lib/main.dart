@@ -1,6 +1,7 @@
 import 'package:doguito_petshop/app_widget.dart';
 import 'package:doguito_petshop/login_page.dart';
 import 'package:doguito_petshop/pages/home_page.dart';
+import 'package:doguito_petshop/pages/produtos_page.dart';
 import 'package:doguito_petshop/splash.dart';
 import 'package:doguito_petshop/utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -28,9 +29,8 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         debugShowCheckedModeBanner: false,
         title: title,
-        theme: ThemeData.dark().copyWith(
-            colorScheme:
-                ColorScheme.fromSwatch(primarySwatch: Colors.blueGrey)),
+        theme: ThemeData.light().copyWith(
+            colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)),
         home: MainPage(),
       );
 }
