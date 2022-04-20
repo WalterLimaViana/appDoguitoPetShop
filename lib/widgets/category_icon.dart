@@ -2,11 +2,12 @@ import 'package:doguito_petshop/widgets/icon_font.dart';
 import 'package:flutter/material.dart';
 
 class CategoryIcon extends StatelessWidget {
-  Color color;
-  String iconName;
+  Color? color;
+  String? iconName;
   double size;
+  double padding;
 
-  CategoryIcon({required this.color, required this.iconName, this.size = 30});
+  CategoryIcon({this.color, this.iconName, this.size = 30, this.padding = 10});
 
   @override
   Widget build(BuildContext context) {

@@ -13,4 +13,6 @@ class Utils {
       ..removeCurrentSnackBar()
       ..showSnackBar(snackBar);
   }
+
+  static getMockedCategories() {}
 }

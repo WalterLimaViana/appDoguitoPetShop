@@ -66,9 +66,8 @@ class _ProdutosPageState extends State<ProdutosPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => SelectedCategoryPage(
-                                          selectedCategory: null,
-                                        )));
+                                    builder: (context) =>
+                                        SelectedCategoryPage()));
                           });
                     })),
           ],

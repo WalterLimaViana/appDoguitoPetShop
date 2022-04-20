@@ -44,20 +44,20 @@ class _HomePageState extends State<HomePage> {
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
-                color: _selectedIndex == 0 ? Colors.blue : Colors.grey,
+                color: _selectedIndex == 0 ? Colors.blue : Colors.blue,
               ),
               label: 'Inicio',
             ),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.pets,
-                  color: _selectedIndex == 1 ? Colors.blue : Colors.grey,
+                  color: _selectedIndex == 1 ? Colors.blue : Colors.blue,
                 ),
                 label: 'Produtos'),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.medical_services_sharp,
-                  color: _selectedIndex == 2 ? Colors.blue : Colors.grey,
+                  color: _selectedIndex == 2 ? Colors.blue : Colors.blue,
                 ),
                 label: 'Serviços'),
           ]),
