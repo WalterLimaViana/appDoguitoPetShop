@@ -1,10 +1,10 @@
 import 'dart:ui';
 
 class Category {
-  String name;
-  String icon;
-  Color color;
-  String imgName;
+  final String name;
+  final String icon;
+  final Color color;
+  final String imgName;
   List<Category> subCategories;
 
   Category({
